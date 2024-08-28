@@ -65,7 +65,23 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            TODO
+            Diffusion-based video generation technology has made significant progress, leading 
+            to a surge of works in the field of Human Body Animation. However, most
+            field-specific works focus on same-modality driving setting, leaving cross-modality
+            human body animation largely unexplored. In this paper, we propose <b>CyberHost</b>,
+            which aims to address issues such as hand integrity, identity consistency, and natural
+            motion under audio-driven setting. To the best of our knowledge, CyberHost it
+            the first one-stage diffusion-based audio-driven human video generation framework,
+            The key design of CyberHost is the Region Codebook Attention, which simultaneously
+            learns the common topological structures and motion patterns of local regions
+            through a spatio-temporal motion codebook, and injects appearance features extracted
+            from cropped local images as identity descriptor. Additionally, we designed
+            a series of human-prior-guided training strategies such as body movement map,
+            hand clarity score, pose-aligned reference feature and local enhancement supervision
+            to enhance the diffusion model’s modeling capabilities. Extensive experiments
+            demonstrate that CyberHost surpasses previous works in both quantitative and
+            qualitative aspects, while also being the first to achieve zero-shot audio-driven
+            video generation for open-set test human images.
           </p>
         </div>
       </div>
