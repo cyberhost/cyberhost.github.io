@@ -65,23 +65,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Diffusion-based video generation technology has made significant progress, leading 
-            to a surge of works in the field of Human Body Animation. However, most
-            field-specific works focus on same-modality driving setting, leaving cross-modality
-            human body animation largely unexplored. In this paper, we propose <b>CyberHost</b>,
-            which aims to address issues such as hand integrity, identity consistency, and natural
-            motion under audio-driven setting. To the best of our knowledge, CyberHost it
-            the first one-stage diffusion-based audio-driven human video generation framework,
-            The key design of CyberHost is the Region Codebook Attention, which simultaneously
-            learns the common topological structures and motion patterns of local regions
-            through a spatio-temporal motion codebook, and injects appearance features extracted
-            from cropped local images as identity descriptor. Additionally, we designed
-            a series of human-prior-guided training strategies such as body movement map,
-            hand clarity score, pose-aligned reference feature and local enhancement supervision
-            to enhance the diffusion model’s modeling capabilities. Extensive experiments
-            demonstrate that CyberHost surpasses previous works in both quantitative and
-            qualitative aspects, while also being the first to achieve zero-shot audio-driven
-            video generation for open-set test human images.
+            Diffusion-based video generation technology has advanced significantly, catalyzing a proliferation of research in human animation. However, the majority of these studies are confined to same-modality driving settings, with cross-modality human body animation remaining relatively underexplored. In this paper, we introduce <b>CyberHost</b>, an end-to-end audio-driven human animation framework that ensures hand integrity, identity consistency, and natural motion. The key design of CyberHost is the Region Codebook Attention mechanism, which improves the generation quality of facial and hand animations by integrating fine-grained local features with learned motion pattern priors. Furthermore, we have developed a suite of human-prior-guided training strategies, including body movement map, hand clarity score, pose-aligned reference feature, and local enhancement supervision, to improve synthesis results. To our knowledge, CyberHost is the first end-to-end audio-driven human diffusion model capable of facilitating zero-shot video generation within the scope of the human body. Extensive experiments demonstrate that CyberHost surpasses previous works in both quantitative and qualitative aspects.
           </p>
         </div>
       </div>
@@ -101,6 +85,15 @@
       class="interpolation-image"
       alt="The overall structure of CyberHost."/>
           </p>
+          <p>
+            CyberHost employs a dual U-Net architecture as its foundational structure and utilizes the motion frame strategy for temporal continuation, establishing a baseline for audio-driven body animation. 
+          </p>
+          <p>
+            Based on the baseline, to enhance the modeling capability for the key human region, \textit{i.e.}, hands and faces, we adapt the proposed Region Codebook Attention to both the facial and hand regions and insert them into multiple stages of the Denoising U-Net. The Region Codebook consists of two parts: the motion codebook learned from the dataset and the identity descriptor extracted from cropped local images. 
+          </p>
+          <p>
+            To reduce the uncertainty in full-body animation driven solely by audio, several improvements have been implemented:  (1) The Body Movement Map is employed to stabilize the root movements of the body. It is encoded and merged with the noised latent, serving as the input for the denoising U-Net.  (2) Hand clarity is explicitly enhanced by incorporating the Hand Clarity Score as a residual into the time embedding to mitigate the effects of motion blur in the data. (3) The Pose Encoder encodes the reference skeleton map, which is then integrated into the reference latent, yielding a Pose-aligned Reference Feature.  
+          </p>
         </div>
 
       </div>
@@ -119,6 +112,10 @@
 
         <!-- Open-set Cases-->
         <h3 class="title is-3">Audio-Driven Demos on Open-set Test Images</h3>
+        <p>
+          CyberHost achieves zero-shot human body animation on open-set test images in audio-driven settings.
+<b>*</b> All test images were sourced from the internet or generated via AIGC. If there are any copyright issues, please contact lingaojie@bytedance.com to have the demo taken down.
+        </p>
         <div style="display:flex;align-items:center;justify-content:center;">
           <img src="./static/images/ad-openset-1.png" width="120"/>
           <video id="main-compare-video"
@@ -126,7 +123,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-1.mp4"
+            <source src="./static/videos/a2v_openset_1_watermarked.mp4"
                     type="video/mp4">
           </video> 
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -136,7 +133,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-2.mp4"
+            <source src="./static/videos/a2v_openset_2_watermarked.mp4"
                     type="video/mp4">
           </video>
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -146,7 +143,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-3.mp4"
+            <source src="./static/videos/a2v_openset_3_watermarked.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -158,7 +155,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-4.mp4"
+            <source src="./static/videos/a2v_openset_4_watermarked.mp4"
                     type="video/mp4">
           </video> 
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -168,7 +165,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-5.mp4"
+            <source src="./static/videos/a2v_openset_5_watermarked.mp4"
                     type="video/mp4">
           </video>
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -178,7 +175,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-6.mp4"
+            <source src="./static/videos/a2v_openset_6_watermarked.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -190,7 +187,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-7.mp4"
+            <source src="./static/videos/a2v_openset_7_watermarked.mp4"
                     type="video/mp4">
           </video>    
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -200,7 +197,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-11.mp4"
+            <source src="./static/videos/a2v_openset_11_watermarked.mp4"
                     type="video/mp4">
           </video>
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -210,7 +207,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-9.mp4"
+            <source src="./static/videos/a2v_openset_9_watermarked.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -222,7 +219,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-10.mp4"
+            <source src="./static/videos/a2v_openset_10_watermarked.mp4"
                     type="video/mp4">
           </video> 
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -232,7 +229,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-8.mp4"
+            <source src="./static/videos/a2v_openset_8_watermarked.mp4"
                     type="video/mp4">
           </video>
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -242,7 +239,7 @@
             preload
             playsinline
             width="120">
-            <source src="./static/videos/ad-openset-12.mp4"
+            <source src="./static/videos/a2v_openset_12_watermarked.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -251,6 +248,7 @@
 
         <!-- Audio2Video Comparison-->
         <h3 class="title is-3">Audio to Video Comparison with Baselines</h3>
+        <h4 class="title is-4">Compare to DiffGesture & MimicMotion</h4>
         <div style="display:flex;align-items:center;justify-content:center;">
           <video id="main-compare-video"
             controls
@@ -300,6 +298,9 @@
           </video> 
         </div>
         <div><p>&nbsp</p></div>
+        <h4 class="title is-4">Compare to Vlogger</h4>
+        *Images and audio are provided by <a href="https://zhuangshaobin.github.io/Vlogger.github.io">Vlogger homepage</a>
+        
         <div style="display:flex;align-items:center;justify-content:center;">
           <video id="main-compare-video"
             controls
@@ -353,6 +354,7 @@
 
         <!-- Video2Video Comparison-->
         <h3 class="title is-3">Video to Video Comparison with Baselines</h3>
+        CyberHost supports video-driven body reenactment and surpasses current state-of-the-art methods in terms of generation quality.
         <div style="display:flex;align-items:center;justify-content:center;">
           <video id="main-compare-video"
             controls
@@ -368,6 +370,7 @@
 
         <!-- MultiModal-Driven Comparison-->
         <h3 class="title is-3">Multimodal-Driven Demo</h3>
+        CyberHost also supports combined control signals from multiple modalities, such as 2D hand keypoints and audio.
         <div style="display:flex;align-items:center;justify-content:center;">
           <video id="main-compare-video"
             controls
