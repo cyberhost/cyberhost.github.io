@@ -162,7 +162,7 @@
             CyberHost employs a dual U-Net architecture as its foundational structure and utilizes the motion frame strategy for temporal continuation, establishing a baseline for audio-driven body animation. 
           </p>
           <p>
-            Based on the baseline, to enhance the modeling capability for the key human region, \textit{i.e.}, hands and faces, we adapt the proposed Region Codebook Attention to both the facial and hand regions and insert them into multiple stages of the Denoising U-Net. The Region Codebook consists of two parts: the motion codebook learned from the dataset and the identity descriptor extracted from cropped local images. 
+            Based on the baseline, to enhance the modeling capability for the key human region, i.e., hands and faces, we adapt the proposed Region Codebook Attention to both the facial and hand regions and insert them into multiple stages of the Denoising U-Net. The Region Codebook consists of two parts: the motion codebook learned from the dataset and the identity descriptor extracted from cropped local images. 
           </p>
           <p>
             To reduce the uncertainty in full-body animation driven solely by audio, several improvements have been implemented:  (1) The Body Movement Map is employed to stabilize the root movements of the body. It is encoded and merged with the noised latent, serving as the input for the denoising U-Net.  (2) Hand clarity is explicitly enhanced by incorporating the Hand Clarity Score as a residual into the time embedding to mitigate the effects of motion blur in the data. (3) The Pose Encoder encodes the reference skeleton map, which is then integrated into the reference latent, yielding a Pose-aligned Reference Feature.  
@@ -186,20 +186,20 @@
         <!-- Open-set Cases-->
         <h3 class="title is-3">Audio-Driven Demos on Open-set Test Images</h3>
         <p>
-          CyberHost achieves zero-shot human body animation on open-set test images in audio-driven settings.
+          CyberHost achieves zero-shot human animation on open-set test images in audio-driven settings.
         </p>
         <p>
           <b>*</b> All test images were sourced from the internet or generated via AIGC. If there are any copyright issues, please contact lingaojie@bytedance.com to have the demo taken down.
         </p>
 
         <div style="display:flex;align-items:center;justify-content:center;">
-          <img src="./static/images/ad-openset-4.png" width="30%"/>
+          <img src="./static/images/ad-openset-1.png" width="30%"/>
           <video id="main-compare-video"
             controls
             preload
             playsinline
             width="30%">
-            <source src="./static/videos/a2v_openset_4_watermarked.mp4"
+            <source src="./static/videos/a2v_openset_1_watermarked.mp4"
                     type="video/mp4">
           </video> 
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -215,13 +215,13 @@
         </div>
         <div><p>&nbsp</p></div>
         <div style="display:flex;align-items:center;justify-content:center;">
-          <img src="./static/images/ad-openset-1.png" width="30%"/>
+          <img src="./static/images/ad-openset-4.png" width="30%"/>
           <video id="main-compare-video"
             controls
             preload
             playsinline
             width="30%">
-            <source src="./static/videos/a2v_openset_1_watermarked.mp4"
+            <source src="./static/videos/a2v_openset_4_watermarked.mp4"
                     type="video/mp4">
           </video>
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -237,13 +237,13 @@
         </div>
         <div><p>&nbsp</p></div>
         <div style="display:flex;align-items:center;justify-content:center;">
-          <img src="./static/images/ad-openset-7.png" width="30%"/>
+          <img src="./static/images/ad-openset-12.png" width="30%"/>
           <video id="main-compare-video"
             controls
             preload
             playsinline
             width="30%">
-            <source src="./static/videos/a2v_openset_7_watermarked.mp4"
+            <source src="./static/videos/a2v_openset_12_watermarked.mp4"
                     type="video/mp4">
           </video>    
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -290,13 +290,13 @@
                     type="video/mp4">
           </video>
           &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-          <img src="./static/images/ad-openset-12.png" width="30%"/>
+          <img src="./static/images/ad-openset-7.png" width="30%"/>
           <video id="main-compare-video"
             controls
             preload
             playsinline
             width="30%">
-            <source src="./static/videos/a2v_openset_12_watermarked.mp4"
+            <source src="./static/videos/a2v_openset_7_watermarked.mp4"
                     type="video/mp4">
           </video>
         </div>
