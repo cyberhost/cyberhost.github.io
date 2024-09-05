@@ -443,7 +443,7 @@
 
         <!-- Video2Video Comparison-->
         <h3 class="title is-3">Video to Video Comparison with Baselines</h3>
-        CyberHost supports video-driven body reenactment and surpasses current state-of-the-art methods in terms of generation quality. The driving signals come from the GT video, and the reference frame is the first frame of the GT video.
+        CyberHost supports video-driven body reenactment and surpasses current state-of-the-art methods in terms of generation quality. The driving signals are skeleton maps extracted from the GT(ground-truth) video using DWPose, and the reference frame is the first frame of the GT video.
         <div style="display:flex;align-items:center;justify-content:center;">
           <video id="main-compare-video"
             controls
