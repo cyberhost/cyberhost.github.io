@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="CyberHost: Taming Audio-driven Avatar Diffusion Model with Region Codebook Attention">
+        content="CyberHost: A One-stage Diffusion Framework for Audio-driven Talking Body Generationn">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CyberHost: Taming Audio-driven Avatar Diffusion Model with Region Codebook Attention</title>
+  <title>CyberHost: A One-stage Diffusion Framework for Audio-driven Talking Body Generation</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -78,7 +78,7 @@
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <h1 class="title is-1 publication-title">
-          CyberHost: Taming Audio-driven Avatar Diffusion Model with Region Codebook Attention </h1>
+          CyberHost: A One-stage Diffusion Framework for Audio-driven Talking Body Generation </h1>
         <div class="is-size-5 publication-authors">
           <span class="author-block">
             <a href="">Gaojie Lin</a><sup>1*</sup>,
@@ -111,7 +111,7 @@
           <div class="publication-links">
             <!-- PDF Link. -->
             <span class="link-block">
-              <a href="https://arxiv.org/pdf/2409.01876" class="external-link button is-normal is-rounded is-dark">
+              <a href="https://openreview.net/pdf?id=vaEPihQsAA" class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                     <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
                 </span>
@@ -142,7 +142,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Diffusion-based video generation technology has advanced significantly, catalyzing a proliferation of research in human animation. However, the majority of these studies are confined to same-modality driving settings, with cross-modality human body animation remaining relatively underexplored. In this paper, we introduce <b>CyberHost</b>, an end-to-end audio-driven human animation framework that ensures hand integrity, identity consistency, and natural motion. The key design of CyberHost is the Region Codebook Attention mechanism, which improves the generation quality of facial and hand animations by integrating fine-grained local features with learned motion pattern priors. Furthermore, we have developed a suite of human-prior-guided training strategies, including body movement map, hand clarity score, pose-aligned reference feature, and local enhancement supervision, to improve synthesis results. To our knowledge, CyberHost is the first end-to-end audio-driven human diffusion model capable of facilitating zero-shot video generation within the scope of the human body. Extensive experiments demonstrate that CyberHost surpasses previous works in both quantitative and qualitative aspects.
+            Diffusion-based video generation technology has advanced significantly, catalyzing a proliferation of research in human animation. While breakthroughs have been made in driving human animation through various modalities for portraits, most of current solutions for human body animation still focus on video-driven methods, leaving audio-driven taking body generation relatively underexplored. In this paper, we introduce CyberHost, a one-stage audio-driven talking body generation framework that addresses common synthesis degradations in half-body animation, including hand integrity, identity consistency, and natural motion. CyberHost's key designs are twofold. Firstly, the Region Attention Module (RAM) maintains a set of learnable, implicit, identity-agnostic latent features and combines them with identity-specific local visual features to enhance the synthesis of critical local regions. Secondly, the Human-Prior-Guided Conditions introduce more human structural priors into the model, reducing uncertainty in generated motion patterns and thereby improving the stability of the generated videos. To our knowledge, CyberHost is the first one-stage audio-driven human diffusion model capable of zero-shot video generation for the human body. Extensive experiments demonstrate that CyberHost surpasses previous works in both quantitative and qualitative aspects. CyberHost can also be extended to video-driven and audio-video hybrid-driven scenarios, achieving similarly satisfactory results.
           </p>
         </div>
         <div style="display:flex;align-items:center;justify-content:center;">
@@ -189,10 +189,13 @@
             CyberHost employs a dual U-Net architecture as its foundational structure and utilizes the motion frame strategy for temporal continuation, establishing a baseline for audio-driven body animation. 
           </p>
           <p>
-            Based on the baseline, to enhance the modeling capability for the key human region, i.e., hands and faces, we adapt the proposed Region Codebook Attention to both the facial and hand regions and insert them into multiple stages of the Denoising U-Net. The Region Codebook consists of two parts: the motion codebook learned from the dataset and the identity descriptor extracted from cropped local images. 
-          </p>
-          <p>
-            To reduce the uncertainty in full-body animation driven solely by audio, several improvements have been implemented:  (1) The Body Movement Map is employed to stabilize the root movements of the body. It is encoded and merged with the noised latent, serving as the input for the denoising U-Net.  (2) Hand clarity is explicitly enhanced by incorporating the Hand Clarity Score as a residual into the time embedding to mitigate the effects of motion blur in the data. (3) The Pose Encoder encodes the reference skeleton map, which is then integrated into the reference latent, yielding a Pose-aligned Reference Feature.  
+            Based on the baseline, we proposed two key designs to address the inherent challenges of the audio-driven talking body generation task. First, to enhance the model's ability to capture details in critical human region, <i>i.e.</i>, hands and faces, we adapt the proposed region attention module (RAM) to both the facial and hand regions and insert them into multiple stages of the Denoising U-Net. RAM consists of two parts: the spatio-temporal region latents bank learned from the data and the identity descriptor extracted from cropped local images. Second, to reduce the motion uncertainty in half-body animation driven solely by audio, several conditions have been designed to integrate global-local motion constraints and human structural priors:
+            <ol>
+              <li>The body movement map is employed to stabilize the root movements of the body. It is encoded and merged with the noised latent, serving as the input for the denoising U-Net. </li>
+              <li>The hand clarity score is designed to prevent hand prediction degradation caused by motion blur in the training data. It is incorporated as a residual into the time embedding.</li>
+              <li>The pose encoder encodes the reference skeleton map, which is then integrated into the reference latent, yielding a pose-aligned reference feature.</li>
+          </ol>
+            Note that the pose encoder for the body movement map and the reference skeleton map share the same model architecture, except for the first convolution layer, but do not share any model parameter.
           </p>
         </div>
 
@@ -383,12 +386,13 @@
         <div class="column has-text-justified">
           If you find this project is useful to your research, please cite us:
           <pre><code>
-            @article{lin2024cyberhost,
-              title={CyberHost: Taming Audio-driven Avatar Diffusion Model with Region Codebook Attention},
-              author={Lin, Gaojie and Jiang, Jianwen and Liang, Chao and Zhong, Tianyun and Yang, Jiaqi and Zheng, Yanbo},
-              journal={arXiv preprint arXiv:2409.01876},
-              year={2024}
-            }
+            @inproceedings{lin2025cyberhost,
+              title={CyberHost: A One-stage Diffusion Framework for Audio-driven Talking Body Generation},
+              author={Gaojie Lin and Jianwen Jiang and Chao Liang and Tianyun Zhong and Jiaqi Yang and Zerong Zheng and Yanbo Zheng},
+              booktitle={The Thirteenth International Conference on Learning Representations},
+              year={2025},
+              url={https://openreview.net/forum?id=vaEPihQsAA}
+              }
           </code></pre>
         </div>
       </div>
